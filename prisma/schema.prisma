@@ -50,6 +50,7 @@ model Bounty {
 
     track           Track         @relation(name: "Bounty_Track", fields: [fkTrackId], references: [id], onDelete: Cascade)
     fkTrackId       String        @unique @map(name: "fk_track_id")
+    claimedIds      String[]      @map(name : "list_claimed_ids")
 
     @@map(name: "bounties")
 }

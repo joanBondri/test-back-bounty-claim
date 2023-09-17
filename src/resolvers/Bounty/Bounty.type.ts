@@ -21,6 +21,8 @@ export class Bounty implements PrismaBounty {
         return null;
     }
 
+    claimedIds: string[];
+
     claimCode: string;
 
     @Field(() => String, { nullable: true })

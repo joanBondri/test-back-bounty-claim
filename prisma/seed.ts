@@ -104,7 +104,7 @@ async function createTrack(artistId?: string): Promise<Track> {
             },
         });
     }
-
+    const userId = (await createUser()).id;
     if (Math.random() > 0.6) {
         await prisma.bounty.create({
             data: {
@@ -116,6 +116,7 @@ async function createTrack(artistId?: string): Promise<Track> {
                 createdAt: faker.date.past(),
                 updatedAt: faker.date.recent(),
                 fkTrackId: track.id,
+                claimedIds: [userId],
             },
         });
     }
